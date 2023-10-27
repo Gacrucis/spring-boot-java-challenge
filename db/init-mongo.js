@@ -1,0 +1,1 @@
+db.getSiblingDB('challenge').createUser({ user: 'gamma', pwd: '1234', roles: [ { role: 'readWrite', db: 'challenge' } ] });

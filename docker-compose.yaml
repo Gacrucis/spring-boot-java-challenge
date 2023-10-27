@@ -1,0 +1,25 @@
+version: '3'
+services:
+  # MongoDB
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: s3cr3t
+      MONGO_INITDB_DATABASE: challenge
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+
+  # Spring Boot
+  spring-boot:
+    image: spring-challenge
+    build:
+      context: ./challenge
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_HOST: mongodb
