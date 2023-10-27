@@ -4,7 +4,7 @@
 `docker compose up --build`
 
 ## How to Test
-Using Postman, import the `./postman` file `Challenge.postman_collection`, I recommend creating a fixed ID booking for ease of testing.
+Using Postman, import the `./postman` file `Challenge.postman_collection`, I recommend creating a fixed ID booking for ease of testing and replacing {{root}} for `http://127.0.0.1:8080`
 
 The maven app itself has defined unit tests, but these were for myself and just call the service as the already defined API would, proper unit tests should use Mockito or related methods.
 
